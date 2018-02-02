@@ -1,2 +1,2 @@
-# SM2018
-Paper for the International Conference On Social Media, Wearable And Web Analytics (Social Media 2018)
+# ICCCI2018
+Paper for the 10th International Conference on Computational Collective Intelligence (ICCCI 2018)
