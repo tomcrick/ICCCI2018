@@ -10,8 +10,8 @@
 
 \begin{document}
 
-\title{Popularity and
-  Geospatial Spread of Immigration Trends on Twitter}
+\title{Popularity and Geospatial Spread of Trends on Twitter: A Middle
+Eastern Case Study}
 
 \author{Nabeel Albishry\inst{1,3}\thanks{This work has been supported by a doctoral research scholarship for
 Nabeel Albishry from King Abdulaziz University, Kingdom of Saudi
@@ -43,42 +43,49 @@ address geospatial spread of trends on Twitter.
  \end{abstract}
 
 \begin{keywords}
-Trends, topic spread, network graphs, immigration, Twitter
+Trends, topic spread, network graphs, Twitter
 \end{keywords}
 
 \section{Introduction}\label{intro}
 
-With the tremendous volume of tweets, trending topics serve as
-valuable sources of information on summarising what is going on
-Twitter, worldwide or in specific loca-tion. Apart from official trend
-lists provided by the platform, on the website or through API
-endpoints, trends and topics detection have been receiving a lot of
-atten-tion across different research domains. In the health field for
-example, monitoring and predicting of trending topics through social
-media are adopted to measure health is-sues, such as flu spread, and
-therefore have gained considerable attention in the recent years
-[1]–[4]. Also, in marketing and business domain, topic detection and
-classifica-tion are important approaches to extract knowledge about
-public opinions from posts on social media [5], as well as in
-analysing voting intentions and political view of users [6].
+With the huge daily volume of generated content on Twitter -- c.500
+million per day -- trending topics serve as valuable sources of
+information on highlighting what is going on in the world, or in
+specific locations. Apart from the ``official'' trend lists provided
+by the platform (on the website or through API endpoints), generating
+insight from trends and topics detection has been receiving
+significant attention from across a variety of big social data-driven
+research domains. In health for example, monitoring and analysis of
+trending topics through social media has been adopted to measure
+public health issues, such as the spread of
+influenza~\cite{Achrekar2011,Parker2013,Parker2015,Majak2018}. Furthermore,
+in the marketing and business domain, topic detection and
+classification are important approaches to extract knowledge and
+insight on public opinions from posts on social
+media~\cite{Bello2013}, as well as in analysing voting intentions and
+political view of users~\cite{Fang2015}.
 
-With the increasing popularity of social networks, effect of trends on
-public have placed them in many social media campaigns and public
-relations strategy. This has made trends a valuable target for
-manipulation [7] stuffing [8], spamming [9][10] and hijacking
-[11]. For example, the study in [12] explored a trend hijacking case
-and suggested that increasing social media engagement may not be
-beneficial for public relations.
+With the increasing popularity and use of social networks, the impact
+of trends on public opinion and perceptions has placed them centrally
+in many social media campaigns and public relations strategy. This has
+made trends a valuable target for manipulation~\cite{Zhang2017},
+stuffing~\cite{Irani2010}, spamming~\cite{Sedhai2015,Chu2012}, and
+hijacking~\cite{VanDam2016}. For example, the study
+in~\cite{Sanderson2016} explored a trend hijacking case and suggested
+that increasing social media engagement may not always be beneficial
+for public relations strategies.
 
 A common approach in analysing Twitter trends is by clustering and
-classification of trending topics based on content [13][14][15]. Also,
-the study in [16] presented a content-independent method to model
-trends progression through dynamics of users interactions. Other
-studies aimed to provide real time classification or detection of
-trends, such as [17][18]. With the increasing need for trends analysis
-across various domains, customisable clustering tools that can be used
-by non-technical users started to emerge, such as the recent example
-introduced in [19].
+classification of trending topics based on
+content~\cite{Zubiaga2011,Benhardus2013,Ferragina2015,albishry-et-al:iccci2017}. The
+study in~\cite{TenThij2016} presented a content-independent method to
+model trends progression through the dynamics of users interactions;
+other studies have also attempted to provide real-time classification
+or detection of trends~\cite{Mathioudakis2010,Zubiaga2014}. With the
+increasing demand for trends analysis across various domains,
+customisable clustering tools that can be used by non-technical users
+have started to emerge, such as the recent example introduced
+in~\cite{Arn2018}.
 
 
 \section{Methodology}\label{method}
