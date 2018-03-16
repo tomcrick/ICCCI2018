@@ -27,19 +27,26 @@ Faculty of Computing \& IT, King Abdulaziz University, Jeddah, Saudi Arabia\\\em
 \maketitle
 
 \begin{abstract}
-The techniques presented here helps giving broad understanding of
-public concerns and common issue across different places. Hundreds of
-topics trend throughout the day, which makes it nearly impossible to
-analysis everything out there. Hence, the necessity of more generic
-approach that is quick and less costly were main motivation behind the
-work presented here. Therefore, all analysis and methods explained in
-this paper are based on trends information only and do not include
-processing of individual topics. With a year-worth of trends data,
-this work investigates, popularity and geospatial spread of
-trends. The findings show that spread likelihood of trend to other
-places is, to some extent, influenced by the place at with it first
-appeared. To the best of our knowledge, this is the first study to
-address geospatial spread of trends on Twitter.
+Thousands of topics trend on Twitter throughout the day, making it
+difficult to provide in-depth analysis of current issues, topics and
+themes being discussed across various locations and
+jurisdictions. There is thus a need for simple, generic and extensible
+approaches to provide deeper insight into these trends and how they
+propagate across locales. This paper represents one of the first
+studies to look at geospatial spread of trends on Twitter, presenting
+various techniques to provide a better understanding of how trends on
+social networks spread across various regions and nations. It is based
+on a year-long data collection ({\emph{N}}=2,307,163) and analysis
+between 2016-2017 of seven Middle Eastern countries (Bahrain, Egypt,
+Kuwait, Lebanon, Qatar, Saudi Arabia, and the United Arab
+Emirates). Using this year-long dataset, the project investigates the
+popularity and geospatial spread of trends, focusing on trend
+information but not processing individual topics, with the findings
+showing that likelihood of trends spreading to other locales is to a
+large extent influenced by the place in which it first
+appeared. Alongside our network graph approach, we make some
+observations on how this work could be extended further for real-time
+trend analysis.
  \end{abstract}
 
 \begin{keywords}
@@ -111,15 +118,15 @@ rates~\cite{Salem2017}.
 
 \subsection{Data Collection}
 
-Trending topic lists in the seven countries were monitored from 18 Oct 2016
-to 31 Oct 2017. Every hour, trending lists were collected through the 
-Twitter REST API, which resulted in 7,948 hour's worth of records for
-all the countries, accumulating 2,307,163 trend records. It is important
-to note that the Twitter API does not necessarily provide trends data
-for every request; for example, it is possible to receive no
-information for tweet volume. For each location, the list of available
-trending topic is returned. From this list, four pieces of information
-are extracted from each trend record:
+Trending topic lists in the seven countries were monitored for a year
+between October 2016 and October 2017. Every hour, trending lists were
+collected through the Twitter REST API, which resulted in 7,948 hour's
+worth of records for all the countries, accumulating 2,307,163 trend
+records. It is important to note that the Twitter API does not
+necessarily provide trends data for every request; for example, it is
+possible to receive no information for tweet volume. For each
+location, the list of available trending topic is returned. From this
+list, four pieces of information are extracted from each trend record:
 
 \begin{itemize}
 \item {\emph{woeid}}: the Yahoo! Where On Earth ID (WOEID) of the location;
@@ -436,14 +443,15 @@ Arabia: its scores in reaching other locations were not comparable to its
 scores in being the origin of common trends, as shown in
 Tables~\ref{tbl:furtherreach} and \ref{tbl:trendorigin}.
 
-In conclusion, the study has presented an approach to analysing trends data
-using graphs and their properties. It demonstrates the importance of graph
-construction techniques to capture raw trends data, resulting in the
-temporal base graph. Then, it presented how aggregated weighted graph
-can be generated from the base graph. The temporal graph was used to
-measure temporal properties such as spread and reach; the weighted
-graph was used to measures overall activities, such as commonality and
-popularity of trends, and diversity and activity of locations.
+In conclusion, the study has presented an approach to analysing trends
+data using graphs and their properties. It demonstrates the importance
+of graph construction techniques to capture raw trends data, resulting
+in the temporal base graph. Then, it presented how aggregated weighted
+graph can be generated from the base graph. The temporal graph was
+used to measure temporal properties such as spread and reach; the
+weighted graph was used to measures overall activities, such as
+commonality and popularity of trends, and diversity and activity of
+locations.
 
 The presented approach showed how trends data can be used to evaluate
 topics and location activity without the need to crawl individual
