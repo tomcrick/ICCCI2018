@@ -43,7 +43,7 @@ address geospatial spread of trends on Twitter.
  \end{abstract}
 
 \begin{keywords}
-Trends, topic spread, network graphs, Twitter
+Trends, topic spread, popularity, network graphs, Twitter
 \end{keywords}
 
 \section{Introduction}\label{intro}
@@ -175,70 +175,101 @@ countries, and the volume of the engagement.
 
 \section{Results}\label{results}
 
-Observation of the weighted graph provided overall evaluation of
-activity for trends and places. In total there were 76,266 trend that
-have trended 2,307,163 times across all places. This suggests that
-trends may appear repeatedly over time. Overall repeti-tion ratio in
-the dataset was 97\%, and ranged from 80\% to 98\% for individual
-places, with Saudi Arabia scoring lowest and Qatar scoring highest
-rate.
+Observation of the weighted graph provided an overall evaluation of
+activity for trends and places. In total there were 76,266 distinct
+trends that trended 2,307,163 times across all locations; this
+suggests that trends may appear repeatedly over time. The overall
+repetition ratio in the dataset was 97\%, and ranged from 80\% to 98\%
+for individual locations, with Saudi Arabia scoring lowest and Qatar
+scoring highest rate. {\emph{Indegree}}, {\emph{outdegree}}, and
+{\emph{edges}} were used to conduct subsequent results, with further
+explanation to follow in the relevant sections.
 
-{\emph{Indegree}}, {\emph{outdegree}}, and {\emph{edges}} were used to
-conduct subsequent results, further explanation is provided in due
-course.
+\subsection{Commonality and Popularity of Trends}
 
-
-\subsection{Commonality and Popularity of Trends: weighted graph}
-
-Node indegree indicates the number of places at which trend showed
-(commonality), and weighted indegree is used to measure total number
-of times a trend showed (pop-ularity). Indegree was used to group
-trends to, while weighted indegree was used to analysis activity in
-resulted groups, as shown in Table 1. Although 83\% of trends have
-shown in one place only, their total weighted indegrees was about
-41\%. In other words, there were less common trends amongst places,
+The node indegree indicates the number of locations at which the trend
+showed ({\emph{commonality}}), and the weighted indegree is used to
+measure the total number of times a trend showed
+({\emph{popularity}}). Indegree was used to group trends to, while
+weighted indegree was used to analyse activity in generated groups, as
+shown in Table~\ref{tbl:trendsindegree}. Although 83\% of trends have
+appeared in one location only, their total weighted indegrees was
+c.40\%; in other words, there were less common trends amongst places,
 but their popularity was higher than isolated trends\footnote{Isolated
 trends are those that have trended in one place, i.e. their indegree
-equal 1.}. This implies that trends showing across places do not
-necessarily infer their activity or importance.
+equal 1.} -- this implies that trends showing across location does not
+necessarily imply the prominance or importance of activity or topic.
 
-% TABLE 1 HERE
+\begin{table}[!h]
+\centering
+\caption{Trends indegree groups}
+\begin{tabular}{@{}crccccrr@{}}
+\toprule
+Indegree & No. trends & Ratio & Total W. & W. Ratio & Max. & Mean & Std \\ 
+\midrule
+1 & 62,959 & 0.826 & 936,959 & 0.406 & 2,146 &   14.88 &   43.26\\
+2 &   7,338 & 0.096 & 335,073 & 0.145 & 1,957 &   45.66 &   77.45\\
+3 &   2,840 & 0.037 & 220,805 & 0.096 & 1,842 &   77.75 &   96.29\\
+4 &   1,538 & 0.020 & 216,524 & 0.094 & 2,797 & 140.78 & 201.03\\
+5 &      850 & 0.011 & 184,127 & 0.080 & 3,604 & 216.62 & 297.36\\
+6 &      463 & 0.006 & 192,968 & 0.084 & 3,998 & 416.78 & 581.76\\
+7 &      278 & 0.004 & 220,707 & 0.096 & 5,367 & 793.91 & 994.66\\
+\bottomrule
+\end{tabular}
+\label{tbl:trendsindegree}
+\end{table}
 
-\subsection{Countries Participation: weighted graph}
+\subsection{Location Participation}
 
-Nodes outdegree reflects how many unique trends a place is connected
-to (diversity), and weighted outdegree measures the ability of place
-to generate trends (activity). Outdegree descriptive statistics,
-presented in Table 2, shows that Saudi Arabia came at the top of the
-list with 42\% of outgoing edges and weighing 20\% of total weight of
-the graph. Closeness in the table shows how close a country node to
-all other trend nodes. It shows that Saudi Arabia has connections to
-56\% of trends in the graph. Nevertheless, interestingly Saudi Arabia
-was found lowest in terms of maximum edge weight, mean and standard
-deviation. On the other hand, Qatar was found with nearly total
-opposite situation.
+The node outdegree reflects how many unique trends a location is
+connected to ({\emph{diversity}}), and weighted outdegree measures the
+ability of the location to generate trends ({\emph{activity}}). The
+outdegree descriptive statistics, presented in
+Table~\ref{tbl:locationoutdegree}, shows that Saudi Arabia came at the
+top of the list, with 42\% of outgoing edges and weighing 20\% of the
+total weight of the graph. Closeness in the table shows how close a
+country node is to all other trend nodes; it shows that Saudi Arabia
+has connections to 56\% of trends in the graph. Nevertheless, Saudi
+Arabia was found lowest in terms of maximum edge weight, mean and
+standard deviation; Qatar was found to have the reverse values. This
+can be interpreted as the trends activity in Saudi Arabia was more
+diverse in total, but more consistent. In contrast, Qatar is connected
+to a limited number of trends with more focused activity. Also,
+Qatar's outdegree is just 60\% of Bahrain's, although its weighted
+degree was 1.9 higher.
 
-This can be read as that trends activity in Saudi Arabia was more
-diverse and high in total, while more consistent. In contrast, Qatar
-is connected to limited number of trends with more focused
-activity. Also, Qatar’s outdegree is just 60\% of Bahrain’s, although
-its weighted degree was 1.9 higher. 
+\begin{table}[!h]
+\centering
+\caption{Location outdegree descriptive statistics}
+\begin{tabular}{@{}lrccccccr@{}}
+\toprule
+Location & Outdegree & Out. ratio & W. Out. & W. Ratio & Closeness & Max. &  Mean & Std \\ 
+\midrule
+Bahrain &           7,424 & 0.07 & 133,069 & 0.06 & 0.10 & 1,949 & 17.92 &   78.48\\
+Egypt &            14,282 & 0.14 & 383,830 & 0.17 & 0.19 & 1,408 & 26.88 &   58.68\\
+Kuwait &          13,891 & 0.14 & 397,960 & 0.17 & 0.18 & 1,400 & 28.65 &   51.67\\
+Lebanon &         6,044 & 0.06 & 294,761 & 0.13 & 0.08 & 2,146 & 48.77 & 133.64\\
+Qatar &              4,484 & 0.04 & 248,003 & 0.11 & 0.06 & 2,173 & 55.31 & 146.79\\
+Saudi Arabia & 42,767 & 0.42 & 468,081 & 0.20 & 0.56 & 1,175 & 10.95 &   17.43\\
+UAE &              12,389 & 0.12 & 381,459 & 0.17 & 0.16 & 1,655 & 30.79 &   70.75\\
+\bottomrule
+\end{tabular}
+\label{tbl:locationoutdegree}
+\end{table}
 
-% TABLE 2 HERE
+\subsection{Edges Properties}
 
-\subsection{Edges Properties: weighted graph}
-
-Edge weights in the graph were utilised to evaluate places activity in
-indegree groups, shown in
-Figure~\ref{fig:indegreegrouptrends}. Overall, most of places activity
-went to common trends. Although Saudi Arabia was highest terms of
-total activity, most of its activity, 61.26\% of its activity went to
-isolated trends. Moreover, observing originating places for isolated
-trends shows that about 30\% inbound edges came from Saudi Arabia, as
-shown in Figure~\ref{fig:weightedcontributions}. Egypt contributed the
-most in 2 and 3 indegree trend groups, United Arab Emirate in 4, 5 and
-6 indegree trends, and for 7 indegree trends most in edges came from
-Lebanon.
+Edge weights in the graph were utilised to evaluate location activity
+in indegree groups, as shown in
+Figure~\ref{fig:indegreegrouptrends}. Overall, most of location
+activity went to common trends. Although Saudi Arabia was the highest
+in terms of total activity, the majority of its activity (61.26\%) was
+identified as isolated trends. Moreover, observing originating places
+for isolated trends shows that c.30\% of inbound edges came from Saudi
+Arabia, as shown in Figure~\ref{fig:weightedcontributions}. Egypt
+contributed the most in 2 and 3 indegree trend groups, United Arab
+Emirate in 4, 5 and 6 indegree trends, and for 7 indegree trends most
+of in edges originated from the Lebanon.
 
 \begin{figure}[htb]
 \centering
@@ -256,89 +287,168 @@ Lebanon.
 
 \subsection{Temporal Spread and Reach}
 
-As shown by Table 1, about 60\% of weighted indegree went to common
-trends. To further examine temporal changes on those trends,
-timestamps on in-edges of trend nodes in the temporal graph were
-observed. Those timestamps were used to measure temporal order of
-places for trend, as shown in Table 3. For instance, about 42\% of
-first appearance of trends was in Saudi Arabia, while 36\% of 7th
-trend appearance was in Bahrain.
+As shown in Table~\ref{tbl:trendsindegree}, c.60\% of weighted
+indegree was identified as common trends. To further examine temporal
+changes on those trends, timestamps on in-edges of trend nodes in the
+temporal graph were observed. Those timestamps were used to measure
+temporal order of locations for trend, as shown in
+Table~\ref{tbl:temporders}. For instance, about 42\% of first
+appearance of trends was in Saudi Arabia, while 36\% of 7th trend
+appearance was in Bahrain.
 
-% TABLE 3 HERE
+\begin{table}[!h]
+\centering
+\caption{Distribution of temporal orders of location for multi-indegree trends}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+Location & 1st & 2nd & 3rd & 4th & 5th & 6th & 7th \\ 
+\midrule
+Bahrain &          2.3 &    3.0 &    3.5 &  6.3 & 14.9 & 26.0 & 36.0 \\
+Egypt &            16.3 & 13.2 & 21.3 & 22.8 & 16.8 & 11.7 &   2.5 \\
+Kuwait &          16.5 & 29.5 & 23.8 & 15.1 & 13.2 & 11.2 &   8.3\\
+Lebanon &         5.7 &   5.4 &   6.2 &   7.0 &   8.7 & 11.3 & 23.7 \\
+Qatar &              4.1 &   4.9 &   8.9 & 16.1 & 25.1 & 25.6 & 12.6 \\
+Saudi Arabia & 42.2 & 28.7 & 10.2 &   7.1 &   7.3 &   8.1 & 14.4 \\
+UAE &              12.9 & 15.2 & 26.0 & 25.4 & 14.0 &   5.9 &   2.5\\
+\midrule
+{\emph{Total}} & 100 & 100 & 100 & 100 & 100 &  100 &   100\\
+\bottomrule
+\end{tabular}
+\label{tbl:temporders}
+\end{table}
 
-Similar observation was made on outdegree measures, timestamps on
-in-edges of place nodes in the temporal graph were observed. Results
-are presented in Table 4. Highest portion of activities in Saudi,
-Egypt and Lebanon made them 1st places for trends to appear
-in. Nonetheless, Bahrain, UAE, Qatar, and Kuwait were more active with
-trends that have appeared previously.
+A similar observation was made on the outdegree measures, with
+timestamps on in-edges of place nodes in the temporal graph observed;
+the results are presented in Table~\ref{tbl:appearanceorders}. The
+highest portion of activities in Saudi Arabia, Egypt and Lebanon made
+them 1st places for trends to appear in. However, Bahrain, UAE, Qatar,
+and Kuwait were more active with trends that have appeared previously.
 
-% TABLE 4 HERE
+\begin{table}[!h]
+\centering
+\caption{Distribution of appearance orders of locations}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+Order & Bahrain & Saudi & Egypt & UAE & Lebanon & Qatar & Kuwait \\ 
+\midrule
+1st &  18.4 & 53.6 & 34.6 & 26.9 & 32.2 & 19.1 & 26.3 \\
+2nd & 24.2 & 36.4 & 28.0 & 31.9 & 30.5 & 22.9 & 47.1\\
+3rd &  12.8 & 5.8 & 20.3 & 24.4 & 15.8 & 18.6 &  17.1\\
+4th &  12.1 & 2.1 & 11.4 & 12.5 & 9.3 & 17.6 & 5.7 \\
+5th &  14.5 & 1.1 & 4.3 & 3.5 & 5.9 & 13.9 & 2.5 \\
+6th &  11.8 & 0.6 & 1.4 & 0.7 & 3.6 &  6.6 & 1.0 \\
+7th &  6.1 & 0.4 & 0.1 & 0.1 & 2.8 &  1.2 &  0.3\\
+\midrule
+{\emph{Total}} & 100 & 100 & 100 & 100 & 100 &  100 &   100\\
+\bottomrule
+\end{tabular}
+\label{tbl:appearanceorders}
+\end{table}
 
-Additionally, reach of trend was measured to examine how many other
-places a trend is likely to reach based on the country at which it
-first appeared. Therefore, edges and related nodes relating to 1st
-column in Table 3 were used. The results shown in Table 5 say that
-62.3\% of trends that first appeared in Kuwait have also appeared in
-one more place, and 5.1\% of those that first appeared in Qatar have
-also appear in six more places.
+Additionally, the reach of trend was measured to examine how many
+other places a trend is likely to reach based on the location in which
+it first appeared. Therefore, edges and related nodes relating to the
+first column in Table~\ref{tbl:temporders} were used. The results
+presented in Table~\ref{tbl:furtherreach} show that 62.3\% of trends
+that first appeared in Kuwait have also appeared in one other place,
+and 5.1\% of those that first appeared in Qatar have also appear in
+six more places.
 
-% TABLE 5 HERE
+\begin{table}[!h]
+\centering
+\caption{Further reach of trends per locations}
+\begin{tabular}{@{}lrrrrrrr@{}}
+\toprule
+Reach & Bahrain & Egypt & UAE & Lebanon & Qatar & Kuwait & Saudi \\ 
+\midrule
+1 &  54.8 & 59.2 & 54.2 & 50.1 & 41.2 & 62.3 & 53.1 \\
+2 &  19.3 & 22.7 & 21.2 & 21.3 & 24.3 & 18.9 & 21.7\\
+3 &    8.3 & 9.8  & 11.1 & 10.4 & 12.6 & 10.1 & 13.2\\
+4 &    8.3 & 4.4 & 6.4 & 8.1 & 12.0 & 4.1 & 7.2 \\
+5 &    4.7 & 2.7 & 4.3 & 6.5 & 4.7 & 2.6 & 3.3 \\
+6 &    4.7 & 1.2 & 2.8 & 3.7 & 5.1 & 2.1& 1.6\\
+\midrule
+{\emph{Total}} & 100 & 100 & 100 & 100 & 100 &  100 &   100\\
+\bottomrule
+\end{tabular}
+\label{tbl:furtherreach}
+\end{table}
 
-Moreover, Table 6 shows origin of common trends grouped by their
-indegree (connected places). As can be seen, 31.7.1\% of trends that
-appeared in seven places have originated from Saudi Arabia, and 5\%
-from Bahrain. Nevertheless, Bahrain was better in terms of further
-reach.
+Finally, Table~\ref{tbl:trendorigin} shows the origin of common trends
+grouped by their indegree (connected places). As can be seen, 31.7.1\%
+of trends that appeared in seven locations have originated from Saudi
+Arabia, and 5\% from Bahrain. Nevertheless, Bahrain was better in
+terms of further reach.
 
-% TABLE 6 HERE
+\begin{table}[!h]
+\centering
+\caption{Origin of trends per reached locations}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+Location & 2 & 3 & 4 & 5 & 6 & 7 \\ 
+\midrule
+Bahrain &           2.2 &   2.0 &   1.6 &   2.9 &   3.0 &    5.0 \\
+Egypt &            17.5 & 17.3 & 13.8 & 11.3 & 12.5 &    9.4\\
+Kuwait &          18.7 & 14.6  & 14.4 & 10.5 & 12.3 & 16.5\\
+Lebanon &         5.2 &   5.7 &    5.1 &   7.2 & 10.6 & 10.1 \\
+Qatar &              3.1 &   4.7 &    4.5 &   7.8 &   5.6 & 10.0 \\
+Saudi Arabia & 40.7 & 42.9 &  48.1 & 47.4 & 40.2 & 31.7 \\
+UAE &              12.7 & 12.8 &  12.4 & 12.9 & 15.8 & 17.3 \\
+\midrule
+{\emph{Total}} & 100 & 100 & 100 & 100 & 100 &  100 \\
+\bottomrule
+\end{tabular}
+\label{tbl:trendorigin}
+\end{table}
 
 
 \section{Discussion and Conclusions}\label{dissconc}
 
-The results we can see that isolated trends were found most common
-across coun-tries, although the study includes countries with high
-share of active users and high tweets generation rate, like Saudi
-Arabia and Egypt [21]. Also, number of trends returned by the API,
-does not accurately reflect activity of place. Low trending topics may
-indicate low consensus on discussed topics and does not necessarily
-reflect tweeting activity. Also, number of trending topics is very
-likely to include many repeated ones, and therefore high number of
-trends does not necessarily imply more new topics. Furthermore, number
-of trends was not found in correlation with tenden-cy of country to
-participate in common trends. For example, Saudi Arabia was found
-connected to 56\% of trends, however about 61\% them were isolated
-trends, i.e. trends appeared only in Saudi Arabia. Meanwhile, most of
-Qatar’s trends (73.6\%) were common ones, although it had edges with
-6\% of trends. This indicates that activity of some places is more
-focused on internal issues and concerns.
+From the results, we can see that isolated trends were found to be
+most common across countries, although the study includes countries
+with a high proportion of active users and high tweet generation rate,
+such as Saudi Arabia and Egypt~\cite{Salem2017}. As previously
+mentioned, the number of trends returned by the Twitter API does not
+accurately reflect the true activity of the location. Low trending
+topics may indicate low consensus on these discussed topics and does
+not necessarily reflect tweeting activity. Also, the number of
+trending topics is very likely to include repeated ones, and therefore
+a high number of trends does not necessarily imply more new
+topics. Furthermore, the number of trends was not found to correlate
+with the tendency of location to participate in common trends. For
+example, Saudi Arabia was found to be to connected to 56\% of trends,
+however 61\% them were isolated trends i.e. trends that only appeared
+in Saudi Arabia. Meanwhile, most of Qatar's trends (73.6\%) were
+common ones, although it had edges with 6\% of trends; this indicates
+that the activity of certain location is more focused on internal
+issues and concerns.
 
-Also, further reach of trends (i.e. appearing in other places) was
-observed for each place. Although a place may do well in reaching
-other places, the number of trends it generates may affect total
-reach. For example, Qatar was highest in reaching other places,
-however it was the 5th in being the origin of trends that reach all
-places. This was very clear in the case of Saudi Arabia. Its scores in
-reaching other places were not as good as its scores in being the
-origin of common trends, as shown in Table 5 and Table 6.
+Also, the further reach of trends (i.e. appearing in other locations)
+was observed for each location. Although a specific location may do
+well in reaching other places, the number of trends it generates may
+affect the total reach. For example, Qatar was highest in reaching
+other places, however it was the 5th in being the origin of trends
+that reach all places. This was certainly clear in the case of Saudi
+Arabia: its scores in reaching other places were not comparable to its
+scores in being the origin of common trends, as shown in
+Tables~\ref{tbl:furtherreach} and \ref{tbl:trendorigin}.
 
-In conclusion, the study presented an approach to analyse trends data
-using graphs and their properties. It shows the importance of graph
-construction techniques to capture raw trends data that results in
-temporal base graph. Then, it presents how aggregated weighted graph
+In conclusion, the study has presented an approach to analysing trends data
+using graphs and their properties. It demonstrates the importance of graph
+construction techniques to capture raw trends data, resulting in the
+temporal base graph. Then, it presented how aggregated weighted graph
 can be generated from the base graph. The temporal graph was used to
-measure temporal properties such as spread and reach. The weighted
+measure temporal properties such as spread and reach; the weighted
 graph was used to measures overall activities, such as commonality and
 popularity of trends, and diversity and activity of places.
 
 The presented approach showed how trends data can be used to evaluate
 topics and places activity without the need to crawl individual
 topics. Also, it shows how to measure spread of trends and reach based
-on their historical records as well as the originating country.
- 
-The approach can be used and extended to identify trends of important
-features. For example, to extract high spread trends, or how likely it
-is for a trend to reach specific place from another one. 
+on their historical records as well as the originating location. This
+approach can be used and extended to identify trends of important
+features; for example, to extract high spread trends, or how likely it
+is for a trend to reach specific place from another one.
 
 
 % \begin{acks}
