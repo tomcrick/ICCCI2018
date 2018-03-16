@@ -101,9 +101,9 @@ population (e.g. Egypt: 97,553,000) and relatively small populations
 is reported to have the most active daily users on
 Twitter~\cite{Salem2017}; as of March 2016, Saudi Arabia and Egypt
 generated 33\% and 20\% of the tweets in the Middle Eastern
-region. Bahrain is the most balanced country in terms of gender
+region. Bahrain is the most balanced location in terms of gender
 breakdown of active users. Interestingly, between March 2014 and March
-2016, Lebanon was the only country in the Middle Eastern states that
+2016, Lebanon was the only location in the Middle Eastern states that
 has not seen growth in active users, while UAE increased by 60\%. The
 Gulf Cooperation Council countries -- Bahrain, Kuwait, Qatar, UAE, and
 Saudi Arabia -- were reported to have the highest penetration
@@ -117,7 +117,7 @@ Twitter REST API, which resulted in 7,948 hour's worth of records for
 all the countries, accumulating 2,307,163 trend records. It is important
 to note that the Twitter API does not necessarily provide trends data
 for every request; for example, it is possible to receive no
-information for tweet volume. For each country, the list of available
+information for tweet volume. For each location, the list of available
 trending topic is returned. From this list, four pieces of information
 are extracted from each trend record:
 
@@ -130,15 +130,16 @@ are extracted from each trend record:
 
 While the Twitter API returns a list of trending topics for a specific
 {\emph{woeid}} location, the tweet volumes do not provide a
-comprehensive measure the tweeting activity in that place. Rather, the
-tweet volume refers to the overall number of tweets containing the
-trend, regardless of their location. Although the Twitter
-documentation~\cite{twittertrends} does not provide the necessary
-detail on this, it was apparent after observing trends that showed up
-in various locations. Trends were found with the same tweet volume
-across all places and, hence, participation volume of each place was
-not possible to be accurately measured. Therefore, the context of this
-study does not include any reference to this volume entity.
+comprehensive measure of the tweeting activity in that
+location. Rather, the tweet volume refers to the overall number of
+tweets containing the trend, regardless of their location. Although
+the Twitter documentation~\cite{twittertrends} does not provide the
+necessary detail on this, it was apparent after observing trends that
+showed up in various locations. Trends were found with the same tweet
+volume across all locations and, hence, participation volume of each
+location was not possible to be accurately measured. Therefore, the
+context of this study does not include any reference to this volume
+entity.
 
 \subsection{Graph Construction}
 
@@ -194,11 +195,12 @@ measure the total number of times a trend showed
 weighted indegree was used to analyse activity in generated groups, as
 shown in Table~\ref{tbl:trendsindegree}. Although 83\% of trends have
 appeared in one location only, their total weighted indegrees was
-c.40\%; in other words, there were less common trends amongst places,
-but their popularity was higher than isolated trends\footnote{Isolated
-trends are those that have trended in one place, i.e. their indegree
-equal 1.} -- this implies that trends showing across location does not
-necessarily imply the prominance or importance of activity or topic.
+c.40\%; in other words, there were less common trends amongst
+locations, but their popularity was higher than isolated
+trends\footnote{Isolated trends are those that have trended in one
+place, i.e. their indegree equal 1.} -- this implies that trends
+showing across location does not necessarily imply the prominance or
+importance of activity or topic.
 
 \begin{table}[!h]
 \centering
@@ -228,7 +230,7 @@ outdegree descriptive statistics, presented in
 Table~\ref{tbl:locationoutdegree}, shows that Saudi Arabia came at the
 top of the list, with 42\% of outgoing edges and weighing 20\% of the
 total weight of the graph. Closeness in the table shows how close a
-country node is to all other trend nodes; it shows that Saudi Arabia
+location node is to all other trend nodes; it shows that Saudi Arabia
 has connections to 56\% of trends in the graph. Nevertheless, Saudi
 Arabia was found lowest in terms of maximum edge weight, mean and
 standard deviation; Qatar was found to have the reverse values. This
@@ -264,7 +266,7 @@ in indegree groups, as shown in
 Figure~\ref{fig:indegreegrouptrends}. Overall, most of location
 activity went to common trends. Although Saudi Arabia was the highest
 in terms of total activity, the majority of its activity (61.26\%) was
-identified as isolated trends. Moreover, observing originating places
+identified as isolated trends. Moreover, observing originating locations
 for isolated trends shows that c.30\% of inbound edges came from Saudi
 Arabia, as shown in Figure~\ref{fig:weightedcontributions}. Egypt
 contributed the most in 2 and 3 indegree trend groups, United Arab
@@ -321,7 +323,7 @@ A similar observation was made on the outdegree measures, with
 timestamps on in-edges of place nodes in the temporal graph observed;
 the results are presented in Table~\ref{tbl:appearanceorders}. The
 highest portion of activities in Saudi Arabia, Egypt and Lebanon made
-them 1st places for trends to appear in. However, Bahrain, UAE, Qatar,
+them 1st locations for trends to appear in. However, Bahrain, UAE, Qatar,
 and Kuwait were more active with trends that have appeared previously.
 
 \begin{table}[!h]
@@ -346,13 +348,13 @@ Order & Bahrain & Saudi & Egypt & UAE & Lebanon & Qatar & Kuwait \\
 \end{table}
 
 Additionally, the reach of trend was measured to examine how many
-other places a trend is likely to reach based on the location in which
+other locations a trend is likely to reach based on the location in which
 it first appeared. Therefore, edges and related nodes relating to the
 first column in Table~\ref{tbl:temporders} were used. The results
 presented in Table~\ref{tbl:furtherreach} show that 62.3\% of trends
-that first appeared in Kuwait have also appeared in one other place,
+that first appeared in Kuwait have also appeared in one other location,
 and 5.1\% of those that first appeared in Qatar have also appear in
-six more places.
+six more locations.
 
 \begin{table}[!h]
 \centering
@@ -425,11 +427,11 @@ issues and concerns.
 
 Also, the further reach of trends (i.e. appearing in other locations)
 was observed for each location. Although a specific location may do
-well in reaching other places, the number of trends it generates may
+well in reaching other locations, the number of trends it generates may
 affect the total reach. For example, Qatar was highest in reaching
-other places, however it was the 5th in being the origin of trends
-that reach all places. This was certainly clear in the case of Saudi
-Arabia: its scores in reaching other places were not comparable to its
+other locations, however it was the 5th in being the origin of trends
+that reach all locations. This was certainly clear in the case of Saudi
+Arabia: its scores in reaching other locations were not comparable to its
 scores in being the origin of common trends, as shown in
 Tables~\ref{tbl:furtherreach} and \ref{tbl:trendorigin}.
 
@@ -440,15 +442,15 @@ temporal base graph. Then, it presented how aggregated weighted graph
 can be generated from the base graph. The temporal graph was used to
 measure temporal properties such as spread and reach; the weighted
 graph was used to measures overall activities, such as commonality and
-popularity of trends, and diversity and activity of places.
+popularity of trends, and diversity and activity of locations.
 
 The presented approach showed how trends data can be used to evaluate
-topics and places activity without the need to crawl individual
+topics and location activity without the need to crawl individual
 topics. Also, it shows how to measure spread of trends and reach based
 on their historical records as well as the originating location. This
 approach can be used and extended to identify trends of important
 features; for example, to extract high spread trends, or how likely it
-is for a trend to reach specific place from another one.
+is for a trend to reach a specific location from another one.
 
 
 % \begin{acks}
