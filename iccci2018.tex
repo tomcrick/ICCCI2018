@@ -92,84 +92,85 @@ in~\cite{Arn2018}.
 
 \subsection{Context}
 
-Before progressing to the methodology section, it is vital to briefly
-present some statistics and information about the sample countries so
-to clarify context boundaries.  Seven middle eastern countries were
-selected for this study; Bahrain, Egypt, Ku-wait, Lebanon, Qatar,
-Saudi Arabia, and United Arab Emirates (UAE). They include countries
-with relatively big population (Egypt 97,553,000) and relatively small
-pop-ulation (Bahrain 1,493,000) [20]. Kuwait was reported to have the
-most daily active users [21]. As of March 2016, Saudi Arabia and Egypt
-generate 33\% and 20\% of the Arab region tweets, respectively. Also,
-Bahrain has the most balanced Arab country in terms of gender
+Seven Middle Eastern countries were selected for this study: Bahrain,
+Egypt, Kuwait, Lebanon, Qatar, Saudi Arabia, and the United Arab
+Emirates (UAE). The selection includes countries with relatively large
+population (e.g. Egypt: 97,553,000) and relatively small populations
+(e.g. Bahrain:
+1,493,000)~\cite{UnitedNationsDepartmentofEconomicandSocialAffairs2017}. Kuwait
+is reported to have the most active daily users on
+Twitter~\cite{Salem2017}; as of March 2016, Saudi Arabia and Egypt
+generated 33\% and 20\% of the tweets in the Middle Eastern
+region. Bahrain is the most balanced country in terms of gender
 breakdown of active users. Interestingly, between March 2014 and March
-2016, Lebanon was the only country in the Arab states that has not
-gained new active users, while UAE scored 60\%. Last but not least,
-the GCC countries Bahrain, Kuwait, Qatar, UAE, and Saudi Arabia were
-reported to have the highest penetration rate, respectively [21].
+2016, Lebanon was the only country in the Middle Eastern states that
+has not seen growth in active users, while UAE increased by 60\%. The
+Gulf Cooperation Council countries -- Bahrain, Kuwait, Qatar, UAE, and
+Saudi Arabia -- were reported to have the highest penetration
+rates~\cite{Salem2017}.
 
 \subsection{Data Collection}
 
-Trending topic lists in 7 countries were observed from 18th Oct 2016
-until 31st Oct 2017. Every hour trending lists were collected through
-Twitter REST API, which resulted in 7,948 hours' worth of records for
-all the places, accumulating 2,307,163 trend records. It is important
-to note that Twitter API does not necessarily have trends data
-available for every request. For example, it is often to see no
-information for tweet volume. For each country, list of available
+Trending topic lists in the seven countries were monitored from 18 Oct 2016
+to 31 Oct 2017. Every hour, trending lists were collected through the 
+Twitter REST API, which resulted in 7,948 hour's worth of records for
+all the countries, accumulating 2,307,163 trend records. It is important
+to note that the Twitter API does not necessarily provide trends data
+for every request; for example, it is possible to receive no
+information for tweet volume. For each country, the list of available
 trending topic is returned. From this list, four pieces of information
 are extracted from each trend record:
 
 \begin{itemize}
-\item {\emph{woeid}}: The Yahoo! Where On Earth ID of the location;
-\item {\emph{name}}: text of trending topic, such as `\#Call\_For\_Action';
+\item {\emph{woeid}}: the Yahoo! Where On Earth ID (WOEID) of the location;
+\item {\emph{name}}: text of trending topic (e.g `{\texttt{\#Call\_For\_Action}}');
 \item {\emph{as\_of}}: recorded timestamp of the trend;
-\item {\emph{tweet\_volume}}: volume of tweets over the past 24 hours, if it is available.
+\item {\emph{tweet\_volume}}: volume of tweets over the past 24 hours, if available.
 \end{itemize}
 
-A note on volumes -- while the Twitter API returns list of trending
-topic for a specific woeid place, their tweet volumes do not
-accurately measure the tweeting activity in that place. Rather, tweet
-volume refers to number of tweets containing the trend, re-gardless of
-their place. Although Twitter documentation [22] does not provide any
-further details on this, this conclusion was apparent after observing
-trends that showed up in many places. Those trends were found with
-same tweet volume across all places and, hence, participation volume
-of each place was not possible to be accu-rately measured. Therefore,
-the context of this study does not include any reference to this
-volume entity.
+While the Twitter API returns a list of trending topics for a specific
+{\emph{woeid}} location, the tweet volumes do not provide a
+comprehensive measure the tweeting activity in that place. Rather, the
+tweet volume refers to the overall number of tweets containing the
+trend, regardless of their location. Although the Twitter
+documentation~\cite{twittertrends} does not provide the necessary
+detail on this, it was apparent after observing trends that showed up
+in various locations. Trends were found with the same tweet volume
+across all places and, hence, participation volume of each place was
+not possible to be accurately measured. Therefore, the context of this
+study does not include any reference to this volume entity.
 
 \subsection{Graph Construction}
 
-The paper utilises graph structures and their properties to conduct
-analysis and results. The analysis approach involves constructing two
-graphs; base graph that captures structure of trends raw data, and
-aggregated graph which is computed from the base graph to unleash more
-structures and hence additional
-insights. Figure~\ref{fig:graphexamples} illustrates these
-graphs. Nodes and direction orientation of edges are same in both
-graphs. Therefore, nodes with zero indegree identify places, while
-trend nodes feature zero outdegree.
+The study is based on generating graph structures and conducting
+analyses of their properties. The analysis approach involves
+constructing two graphs; the {\emph{temporal base graph}} that
+captures the structure of trend raw data, and the {\emph{weighted
+aggregated graph}} which is generated from the base graph to further
+explore its structure to provide additional
+insights. Figure~\ref{fig:graphexamples} illustrates these graphs; the
+nodes and direction orientation of edges are the same in both
+graphs. Thus, nodes with zero indegree identify places, while trend
+nodes feature zero outdegree.
 
-\begin{figure}[htb]
-\centering
+\begin{figure}[htb] \centering
 \includegraphics[width=\columnwidth]{images/graphexamples.png}
 \caption{Graphs used in analyses}
 \label{fig:graphexamples}
 \end{figure}
 
-{\textbf{Temporal base graph.}} This directed graph consists of three
-trend entities: {\emph{place}}, {\emph{trend}} and
+The {\emph{temporal base graph}} is a directed graph that consists of
+three trend entities: {\emph{place}}, {\emph{trend}} and
 {\emph{timestamp}}. Nodes represent place and trends, and edges are
-labelled with timestamps to indicate the time at which trend showed in
-place. This graph is used to examine temporal properties, such as
-spread.
+labelled with timestamps to indicate the time at which the trend
+appeared in a location. This graph is used to examine temporal
+properties, such as spread.
 
-{\textbf{Weighted aggregated graph.}} This graph combines temporal
-edges between two nodes, in the base graph, into a single weighted
-edge. The feature of weighted edges in this graph is used to measure
-popularity of trends, repetition rate, participation of countries, and
-volume of their participations.
+The {\emph{weighted aggregated graph}} is a graph that combines
+temporal edges between two nodes (in the base graph) into a single
+weighted edge. The feature of weighted edges in this graph is used to
+measure the popularity of trends, repetition rate, participation of
+countries, and the volume of the engagement.
 
 
 \section{Results}\label{results}
