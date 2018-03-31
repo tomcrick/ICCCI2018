@@ -44,9 +44,7 @@ popularity and geospatial spread of trends, focusing on trend
 information but not processing individual topics, with the findings
 showing that likelihood of trends spreading to other locales is to a
 large extent influenced by the place in which it first
-appeared. Alongside our network graph approach, we make some
-observations on how this work could be extended further for real-time
-trend analysis.
+appeared. 
  \end{abstract}
 
 \begin{keywords}
@@ -199,15 +197,15 @@ explanation to follow in the relevant sections.
 The node indegree indicates the number of locations at which the trend
 showed ({\emph{commonality}}), and the weighted indegree is used to
 measure the total number of times a trend showed
-({\emph{popularity}}). Indegree was used to group trends to, while
-weighted indegree was used to analyse activity in generated groups, as
-shown in Table~\ref{tbl:trendsindegree}. Although 83\% of trends have
-appeared in one location only, their total weighted indegrees was
-c.40\%; in other words, there were less common trends amongst
-locations, but their popularity was higher than isolated
+({\emph{popularity}}). Therefore, grouping trends based on indegree has
+revealed 7 indegree groups, as shown in Table~\ref{tbl:trendsindegree}. 
+Also, weighted indegree was used to analyse activity in these groups. 
+Although 83\% of trends have appeared in one location only, their total 
+weighted indegrees was 40\%; in other words, there were less common 
+trends amongst locations, but their popularity was higher than isolated
 trends\footnote{Isolated trends are those that have trended in one
 place, i.e. their indegree equal 1.} -- this implies that trends
-showing across location does not necessarily imply the prominance or
+showing across multiple locations does not necessarily imply the prominance or
 importance of activity or topic.
 
 \begin{table}[!h]
@@ -275,7 +273,7 @@ Figure~\ref{fig:indegreegrouptrends}. Overall, most of location
 activity went to common trends. Although Saudi Arabia was the highest
 in terms of total activity, the majority of its activity (61.26\%) was
 identified as isolated trends. Moreover, observing originating locations
-for isolated trends shows that c.30\% of inbound edges came from Saudi
+for isolated trends shows that 30\% of inbound edges came from Saudi
 Arabia, as shown in Figure~\ref{fig:weightedcontributions}. Egypt
 contributed the most in 2 and 3 indegree trend groups, United Arab
 Emirate in 4, 5 and 6 indegree trends, and for 7 indegree trends most
@@ -297,8 +295,8 @@ of in edges originated from the Lebanon.
 
 \subsection{Temporal Spread and Reach}
 
-As shown in Table~\ref{tbl:trendsindegree}, c.60\% of weighted
-indegree was identified as common trends. To further examine temporal
+As shown in Table~\ref{tbl:trendsindegree}, 60\% of weighted
+indegree was associated with common trends. To further examine temporal
 changes on those trends, timestamps on in-edges of trend nodes in the
 temporal graph were observed. Those timestamps were used to measure
 temporal order of locations for trend, as shown in
@@ -328,7 +326,7 @@ UAE &              12.9 & 15.2 & 26.0 & 25.4 & 14.0 &   5.9 &   2.5\\
 \end{table}
 
 A similar observation was made on the outdegree measures, with
-timestamps on in-edges of place nodes in the temporal graph observed;
+timestamps on out-edges of place nodes in the temporal graph observed;
 the results are presented in Table~\ref{tbl:appearanceorders}. The
 highest portion of activities in Saudi Arabia, Egypt and Lebanon made
 them 1st locations for trends to appear in. However, Bahrain, UAE, Qatar,
@@ -360,7 +358,7 @@ other locations a trend is likely to reach based on the location in which
 it first appeared. Therefore, edges and related nodes relating to the
 first column in Table~\ref{tbl:temporders} were used. The results
 presented in Table~\ref{tbl:furtherreach} show that 62.3\% of trends
-that first appeared in Kuwait have also appeared in one other location,
+that first appeared in Kuwait have also appeared in exactly one more location,
 and 5.1\% of those that first appeared in Qatar have also appear in
 six more locations.
 
@@ -385,7 +383,7 @@ Reach & Bahrain & Egypt & UAE & Lebanon & Qatar & Kuwait & Saudi \\
 \end{table}
 
 Finally, Table~\ref{tbl:trendorigin} shows the origin of common trends
-grouped by their indegree (connected places). As can be seen, 31.7.1\%
+grouped by their indegree (connected places). As can be seen, 31.7\%
 of trends that appeared in seven locations have originated from Saudi
 Arabia, and 5\% from Bahrain. Nevertheless, Bahrain was better in
 terms of further reach.
