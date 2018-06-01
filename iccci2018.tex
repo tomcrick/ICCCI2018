@@ -28,22 +28,23 @@ Faculty of Computing \& IT, King Abdulaziz University, Jeddah, Saudi Arabia\\\em
 
 \begin{abstract}
 Thousands of topics trend on Twitter across the world every day,
-making it challenging to provide in-depth analysis of current issues,
-topics and themes being discussed across various locations and
-jurisdictions. There is thus a demand for simple and extensible
-approaches to provide deeper insight into these trends and how they
-propagate across locales. This paper represents one of the first
-studies to look at geospatial spread of trends on Twitter, presenting
-various techniques to provide increased understanding of how trends on
-social networks can spread across various regions and nations. It is
-based on a year-long data collection ({\emph{N}}=2,307,163) and
-analysis between 2016-2017 of seven Middle Eastern countries (Bahrain,
-Egypt, Kuwait, Lebanon, Qatar, Saudi Arabia, and the United Arab
-Emirates). Using this year-long dataset, the project investigates the
-popularity and geospatial spread of trends, focusing on trend
-information but not processing individual topics, with the findings
-showing that likelihood of trends spreading to other locales is to a
-large extent influenced by the place in which it first appeared.
+making it increasingly challenging to provide real-time analysis of
+current issues, topics and themes being discussed across various
+locations and jurisdictions. There is thus a demand for simple and
+extensible approaches to provide deeper insight into these trends and
+how they propagate across locales. This paper represents one of the
+first studies to look at geospatial spread of trends on Twitter,
+presenting various techniques to provide increased understanding of
+how trends on social networks can spread across various regions and
+nations. It is based on a year-long data collection
+({\emph{N}}=2,307,163) and analysis between 2016-2017 of seven Middle
+Eastern countries (Bahrain, Egypt, Kuwait, Lebanon, Qatar, Saudi
+Arabia, and the United Arab Emirates). Using this year-long dataset,
+the project investigates the popularity and geospatial spread of
+trends, focusing on trend information but not processing individual
+topics, with the findings showing that likelihood of trends spreading
+to other locales is to a large extent influenced by the place in which
+it first appeared.
  \end{abstract}
 
 \begin{keywords}
@@ -54,28 +55,26 @@ Trends, topic spread, popularity, network graphs, Twitter
 
 With the huge daily volume of generated content on Twitter -- c.500
 million tweets per day -- trending topics serve as valuable sources of
-information on highlighting what is going on in the world, or in
-specific locations. Apart from the ``official'' trend lists provided
-by the platform (on the website or through API endpoints), generating
-insight from trends and topics detection has been receiving increasing
-attention from across a variety of big social data-driven research
-domains. In health for example, monitoring and analysis of trending
-topics on social media has been adopted to measure emerging public
-health issues, such as the spread of
-influenza~\cite{Achrekar2011,Parker2013,Parker2015}. Furthermore,
-across the marketing and business domains, topic detection and
-classification are valuable approaches to extract knowledge and
-insight on public opinions from posts on social
-media~\cite{blamey-et-al-2012,Bello2013,albishry-et-al:ssei2018},
+real-time information highlighting what is going on in the world, or
+in specific locations. Apart from the ``official'' trend lists
+provided by the platform (on the website or through API endpoints),
+generating insight from trends and topics detection has been receiving
+increasing attention from across a variety of big social data-driven
+research domains, with varying results; in health for example,
+monitoring and analysis of trending topics on social media has been
+adopted to measure emerging public health issues, such as the spread
+of influenza~\cite{lazer-et-al:2014,Parker2015}. Furthermore, across
+marketing and business domains, topic detection and classification are
+valuable approaches in extracting knowledge and insight on public
+opinions from posts on social
+media~\cite{blamey-et-al-2013,Bello2013,albishry-et-al:ssei2018},
 including analysing voting intentions and political view of
-users~\cite{Fang2015}.
-
-With the increasing popularity and use of social networks across a
-wide range of domains, the impact of trends on public opinion and
-perceptions has transformed social media campaigns and public
-relations strategy. This has made trends a valuable target for
-manipulation~\cite{Zhang2017}, stuffing~\cite{Irani2010},
-spamming~\cite{Sedhai2015,Chu2012}, and
+users~\cite{Fang2015}. With the increasing popularity and use of
+social networks across a wide range of domains, the impact of trends
+on public opinion and perceptions has transformed social media
+campaigns and public relations strategy. This has made trends a
+valuable target for manipulation~\cite{Zhang2017},
+stuffing~\cite{Irani2010}, spamming~\cite{Sedhai2015,Chu2012}, and
 hijacking~\cite{VanDam2016}. Interestingly, deeper analysis of trend
 hijacking cases suggests that increasing social media engagement may
 not always be beneficial for public relations
@@ -87,34 +86,35 @@ content~\cite{Zubiaga2011,Benhardus2013,Ferragina2015,albishry-et-al:iccci2017}.
 The study in~\cite{TenThij2016} presented a content-independent method
 to model trends progression through the dynamics of users
 interactions; other studies have also attempted to provide real-time
-classification or detection of trends~\cite{Mathioudakis2010,Zubiaga2015}. 
-
-Many studies have dealt with trending topics, in terms of topic detection, 
-for example. To the best of our knowledge, no study has investigated 
-how trend spread spatially, and this study aims to provides methods for 
-evaluating trending topics in regard to specific locales and how they spread 
-from one place to another, without the need to collect tweeting activity of individual topics.
-The approach presented in this study provides a way to understand how 
-topics capture interest of public across places and how likely it is for a 
-topic to trend in other places based on its origin. 
+classification or detection of
+trends~\cite{Mathioudakis2010,Zubiaga2015}. Many studies have dealt
+with trending topics, in terms of topic detection, for example. To the
+best of our knowledge, no study has investigated how trends spread
+spatially, and this study aims to provides methods for evaluating
+trending topics in regard to specific locales and how they spread from
+one place to another, without the need to collect tweeting activity of
+individual topics. The approach presented in this study provides a
+framework for understanding how topics capture interest of public
+across places and how likely it is for a topic to trend in other
+places based on its origin.
 
 \section{Methodology}\label{method}
 
 The study is based on generating graph structures and conducting
-analyses of their properties. The analysis approach involves
-constructing two graphs; the {\emph{temporal base graph}} that
-captures the structure of trend raw data, and the {\emph{weighted
-aggregated graph}} which is generated from the base graph to further
-explore its structure to provide additional
-insights. Figure~\ref{fig:graphexamples} illustrates these graphs; the
-nodes and direction orientation of edges are the same in both
-graphs. Thus, nodes with zero indegree identify places, while trend
-nodes feature zero outdegree.
-
-The graph construction approach presented in this paper was adopted
-as a simple way of capturing trends and related places,
-as well as temporal relationship between them. Also, it can be used to
-produce some visual representations of those data.
+analyses of their properties, a widely-used approach (although we
+recognise there are other approaches and
+methodologies~\cite{tufekci:2014}). The graph construction approach presented in
+this paper was adopted as a simple way of capturing trends and related
+places, as well as temporal relationship between them. Furthermore, it
+can be used to produce simple visual representations of those
+data. The analysis approach involves constructing two graphs; the
+{\emph{temporal base graph}} that captures the structure of trend raw
+data, and the {\emph{weighted aggregated graph}} which is generated
+from the base graph to further explore its structure to provide
+additional insights. Figure~\ref{fig:graphexamples} illustrates these
+graphs; the nodes and direction orientation of edges are the same in
+both graphs. Thus, nodes with zero indegree identify places, while
+trend nodes feature zero outdegree.
 
 \begin{figure}[!htb] \centering
 \includegraphics[width=\columnwidth]{images/graphexamples.png}
@@ -127,13 +127,11 @@ three trend entities: {\emph{place}}, {\emph{trend}} and
 {\emph{timestamp}}. Nodes represent place and trends, and edges are
 labelled with timestamps to indicate the time at which the trend
 appeared in a location. This graph is used to examine temporal
-properties, such as spread.
-
-The {\emph{weighted aggregated graph}} is a graph that combines
-temporal edges between two nodes (in the base graph) into a single
-weighted edge. The feature of weighted edges in this graph is used to
-measure the popularity of trends, repetition rate, participation of
-countries, and the volume of the engagement.
+properties, such as spread. The {\emph{weighted aggregated graph}} is
+a graph that combines temporal edges between two nodes (in the base
+graph) into a single weighted edge. The feature of weighted edges in
+this graph is used to measure the popularity of trends, repetition
+rate, participation of countries, and the volume of the engagement.
 
 \subsection{Locales}
 
@@ -165,13 +163,11 @@ necessarily provide trends data for every request; for example, it is
 possible to receive no information for tweet volume. For each
 location, the list of available trending topic is returned. From this
 list, four pieces of information are extracted from each trend record:
-
-\begin{itemize}
-\item {\emph{woeid}}: the Yahoo! Where On Earth ID (WOEID) of the location;
-\item {\emph{name}}: text of trending topic (e.g `{\texttt{\#Call\_For\_Action}}');
-\item {\emph{as\_of}}: recorded timestamp of the trend;
-\item {\emph{tweet\_volume}}: volume of tweets over the past 24 hours, if available.
-\end{itemize}
+{\emph{woeid}}: the Yahoo! Where On Earth ID (WOEID) of the location;
+{\emph{name}}: text of trending topic (e.g
+`{\texttt{\#Call\_For\_Action}}'); {\emph{as\_of}}: recorded timestamp
+of the trend; {\emph{tweet\_volume}}: volume of tweets over the past
+24 hours, if available.
 
 While the Twitter API returns a list of trending topics for a specific
 {\emph{woeid}} location, the tweet volumes do not provide a
