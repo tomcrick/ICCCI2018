@@ -103,22 +103,23 @@ places based on its origin.
 The study is based on generating graph structures and conducting
 analyses of their properties, a widely-used approach (although we
 recognise there are other approaches and
-methodologies~\cite{tufekci:2014}). The graph construction approach presented in
-this paper was adopted as a simple way of capturing trends and related
-places, as well as temporal relationship between them. Furthermore, it
-can be used to produce simple visual representations of those
-data. The analysis approach involves constructing two graphs; the
-{\emph{temporal base graph}} that captures the structure of trend raw
-data, and the {\emph{weighted aggregated graph}} which is generated
-from the base graph to further explore its structure to provide
-additional insights. Figure~\ref{fig:graphexamples} illustrates these
-graphs; the nodes and direction orientation of edges are the same in
-both graphs. Thus, nodes with zero indegree identify places, while
-trend nodes feature zero outdegree.
+methodologies~\cite{tufekci:2014}). The graph construction approach
+presented in this paper was adopted as a simple way of capturing
+trends and related places, as well as temporal relationship between
+them. Furthermore, it can be used to produce simple visual
+representations of those data. The analysis approach involves
+constructing two graphs; the {\emph{temporal base graph}} that
+captures the structure of trend raw data, and the {\emph{weighted
+aggregated graph}} which is generated from the base graph to further
+explore its structure to provide additional
+insights. Figure~\ref{fig:graphexamples} illustrates these graphs; the
+nodes and direction orientation of edges are the same in both
+graphs. Thus, nodes with zero indegree identify places, while trend
+nodes feature zero outdegree.
 
 \begin{figure}[!htb] \centering
 \includegraphics[width=\columnwidth]{images/graphexamples.png}
-\caption{Graphs used in analyses}
+\caption{Graphs contructed during analyses}
 \label{fig:graphexamples}
 \end{figure}
 
@@ -154,7 +155,7 @@ rates~\cite{Salem2017}.
 
 \subsection{Data Collection}
 
-Trending topic lists in the seven countries were monitored for a year
+Trending topic lists in the seven countries were monitored for the year
 between October 2016 and October 2017. Every hour, trending lists were
 collected through the Twitter REST API, which resulted in 7,948 hour's
 worth of records for all the countries, totalling 2,307,163 trend
@@ -306,14 +307,14 @@ in common trends of a place does not necessarily imply low number of shared tren
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\columnwidth]{images/CommonTrendsGraph.png}
+\includegraphics[width=0.75\columnwidth]{images/CommonTrendsGraph.png}
 \caption{Common Trends Graph}
 \label{fig:commontrendsgraph}
 \end{figure}
 
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\columnwidth]{images/weightedcontributions.png}
+\includegraphics[width=0.8\columnwidth]{images/weightedcontributions.png}
 \caption{Weighted contribution of countries toward trends indegree groups}
 \label{fig:weightedcontributions}
 \end{figure}
@@ -437,24 +438,24 @@ UAE &              12.7 & 12.8 &  12.4 & 12.9 & 15.8 & 17.3 \\
 \vspace{-2em}
 \section{Discussion and Conclusions}\label{dissconc}
 
-From the results presented, we can see that isolated trends were found to be
-most common across countries, although the study includes countries
-with a high proportion of active users and high tweet generation rate,
-such as Saudi Arabia and Egypt~\cite{Salem2017}. As previously
-mentioned, the number of trends returned by the Twitter API does not
-accurately reflect the true activity of the location. Low trending
-topics may indicate low consensus on these discussed topics and does
-not necessarily reflect tweeting activity. Also, the number of
-trending topics is very likely to include repeated ones, and therefore
-a high number of trends does not necessarily imply more new
-topics. Furthermore, the number of trends was not found to correlate
-with the tendency of location to participate in common trends. For
-example, Saudi Arabia was found to be to connected to 56\% of trends,
-however 61\% them were isolated trends i.e. trends that only appeared
-in Saudi Arabia. Meanwhile, most of Qatar's trends (73.6\%) were
-common ones, although it had edges with 6\% of trends; this indicates
-that the activity of certain location is more focused on internal
-issues and concerns.
+From the results presented in this first study, we can see that
+isolated trends were found to be most common across all countries,
+although the study includes countries with a high proportion of active
+users and high tweet generation rate, such as Saudi Arabia and
+Egypt~\cite{Salem2017}. As previously mentioned, the number of trends
+returned by the Twitter API does not accurately reflect the true
+activity of the location. Low trending topics may indicate low
+consensus on these discussed topics and does not necessarily reflect
+tweeting activity. Also, the number of trending topics is very likely
+to include repeated ones, and therefore a high number of trends does
+not necessarily imply more new topics. Furthermore, the number of
+trends was not found to correlate with the tendency of location to
+participate in common trends. For example, Saudi Arabia was found to
+be to connected to 56\% of trends, however 61\% them were isolated
+trends i.e. trends that only appeared in Saudi Arabia. Meanwhile, most
+of Qatar's trends (73.6\%) were common ones, although it had edges
+with 6\% of trends; this indicates that the activity of certain
+location is more focused on internal issues and concerns.
 
 Also, the further reach of trends (i.e. appearing in other locations)
 was observed for each location. Although a specific location may do
@@ -466,23 +467,23 @@ Arabia: its scores in reaching other locations were not comparable to its
 scores in being the origin of common trends, as shown in
 Tables~\ref{tbl:furtherreach} and \ref{tbl:trendorigin}.
 
-This study has presented an approach to analysing trends
-data using graphs and their properties. It demonstrates the importance
-of graph construction techniques to capture raw trends data, resulting
-in the temporal base graph. Then, it presented how aggregated weighted
-graph can be generated from the base graph. The temporal graph was
-used to measure temporal properties such as spread and reach; the
-weighted graph was used to measures overall activities, such as
-commonality and popularity of trends, and diversity and activity of
-locations.
-
-The presented approach showed how trends data can be used to evaluate
-topics and location activity without the need to crawl individual
-topics. Also, it shows how to measure spread of trends and reach based
-on their historical records as well as the originating location. This
-approach can be used and extended to identify trends of important
-features; for example, to extract high spread trends, or how likely it
-is for a trend to reach a specific location from another one.
+In summary, this study has presented an new approach to analysing
+Twitter trends data using graphs and their properties. It has
+reinforced the utility of graph construction approaches to capture raw
+trends data, resulting in the temporal base graph. Then, we
+demonstrated how aggregated weighted graph can be generated from the
+base graph. The temporal graph was used to measure temporal properties
+such as spread and reach; the weighted graph was used to measures
+overall activities, such as commonality and popularity of trends, and
+diversity and activity of locations. This approach demonstrates how
+trends data can be used to evaluate topics and location activity
+without the need to crawl individual topics, a burdensome
+process. Furthermore, it shows how to measure spread of trends and
+reach based on their historical records as well as the originating
+location. This approach can be extended and applied to identify trends
+of other important features; for example, to extract high-spread
+trends, or how likely it is for a trend to reach a specific location
+from another one.
 
 
 % \begin{acks}
