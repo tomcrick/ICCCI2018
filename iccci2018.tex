@@ -104,6 +104,36 @@ topic to trend in other places based on its origin.
 
 \section{Methodology}\label{method}
 
+The study is based on generating graph structures and conducting
+analyses of their properties. The analysis approach involves
+constructing two graphs; the {\emph{temporal base graph}} that
+captures the structure of trend raw data, and the {\emph{weighted
+aggregated graph}} which is generated from the base graph to further
+explore its structure to provide additional
+insights. Figure~\ref{fig:graphexamples} illustrates these graphs; the
+nodes and direction orientation of edges are the same in both
+graphs. Thus, nodes with zero indegree identify places, while trend
+nodes feature zero outdegree.
+
+\begin{figure}[!htb] \centering
+\includegraphics[width=\columnwidth]{images/graphexamples.png}
+\caption{Graphs used in analyses}
+\label{fig:graphexamples}
+\end{figure}
+
+The {\emph{temporal base graph}} is a directed graph that consists of
+three trend entities: {\emph{place}}, {\emph{trend}} and
+{\emph{timestamp}}. Nodes represent place and trends, and edges are
+labelled with timestamps to indicate the time at which the trend
+appeared in a location. This graph is used to examine temporal
+properties, such as spread.
+
+The {\emph{weighted aggregated graph}} is a graph that combines
+temporal edges between two nodes (in the base graph) into a single
+weighted edge. The feature of weighted edges in this graph is used to
+measure the popularity of trends, repetition rate, participation of
+countries, and the volume of the engagement.
+
 \subsection{Locales}
 
 Seven Middle Eastern countries were selected for this study: Bahrain,
@@ -156,38 +186,7 @@ participation volume of each location was not possible to be
 accurately measured. Therefore, the context of this study does not
 include any reference to this volume entity.
 
-\subsection{Graph Construction}
-
-The study is based on generating graph structures and conducting
-analyses of their properties. The analysis approach involves
-constructing two graphs; the {\emph{temporal base graph}} that
-captures the structure of trend raw data, and the {\emph{weighted
-aggregated graph}} which is generated from the base graph to further
-explore its structure to provide additional
-insights. Figure~\ref{fig:graphexamples} illustrates these graphs; the
-nodes and direction orientation of edges are the same in both
-graphs. Thus, nodes with zero indegree identify places, while trend
-nodes feature zero outdegree.
-
-\begin{figure}[!htb] \centering
-\includegraphics[width=\columnwidth]{images/graphexamples.png}
-\caption{Graphs used in analyses}
-\label{fig:graphexamples}
-\end{figure}
-
-The {\emph{temporal base graph}} is a directed graph that consists of
-three trend entities: {\emph{place}}, {\emph{trend}} and
-{\emph{timestamp}}. Nodes represent place and trends, and edges are
-labelled with timestamps to indicate the time at which the trend
-appeared in a location. This graph is used to examine temporal
-properties, such as spread.
-
-The {\emph{weighted aggregated graph}} is a graph that combines
-temporal edges between two nodes (in the base graph) into a single
-weighted edge. The feature of weighted edges in this graph is used to
-measure the popularity of trends, repetition rate, participation of
-countries, and the volume of the engagement.
-
+% \subsection{Graph Construction}
 
 \section{Results}\label{results}
 
