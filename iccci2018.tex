@@ -282,8 +282,8 @@ UAE &              12,389 & 0.12 & 381,459 & 0.17 & 0.16 & 1,655 & 30.79 &   70.
 \subsection{Edges Properties}
 
 Edge weights in the graph were utilised to evaluate location activity
-in indegree groups, as shown in
-Figure~\ref{fig:indegreegrouptrends}. Overall, most of location
+in indegree groups. %as shown in Figure~\ref{fig:indegreegrouptrends}. 
+Overall, most of location
 activity went to common trends. Although Saudi Arabia was the highest
 in terms of total activity, the majority of its activity (61.26\%) was
 identified as isolated trends. Moreover, observing originating
@@ -293,11 +293,30 @@ Figure~\ref{fig:weightedcontributions}. Egypt contributed the most in
 2 and 3 indegree trend groups, UAE in 4, 5 and 6 indegree trends, and
 for 7 indegree trends most of in edges originated from the Lebanon.
 
+%\begin{figure}[htb]
+%\centering
+%\includegraphics[width=\columnwidth]{images/indegreegrouptrends.png}
+%\caption{Trends Indegree group distributions across countries}
+%\label{fig:indegreegrouptrends}
+%\end{figure}
+
+\subsection{Common Trends}
+
+Based on results so far, following is further exploration of common trends amongst countries. 
+In the context of this study, trend is regarded common between two places, 
+if it appeared in the trend list of both places. While this network graph excludes 
+weight of edges taken from weighted country-trend graph, edge weights here reflect number 
+of common trends between two linked countries. Accordingly, undirected graph was 
+constructed as shown in Figure~\ref{fig:commontrendsgraph}. Although, it was found 
+with lowest tendency to relate to multi-indegree trends previously, Saudi Arabia was 
+found with highest degree in this graph. This confirms that low weighted outdegree 
+in common trends of a place does not necessarily imply low number of shared trends 
+
 \begin{figure}[htb]
 \centering
-\includegraphics[width=\columnwidth]{images/indegreegrouptrends.png}
-\caption{Trends Indegree group distributions across countries}
-\label{fig:indegreegrouptrends}
+\includegraphics[width=\columnwidth]{images/CommonTrendsGraph.png}
+\caption{Common Trends Graph}
+\label{fig:commontrendsgraph}
 \end{figure}
 
 \begin{figure}[htb]
